@@ -24,6 +24,13 @@ namespace inventory {
 
         void readFromFile(const std::string& filename);
         void writeToFile(const std::string& filename) const;
+
+        [[nodiscard]] const std::vector<std::shared_ptr<Item>>& getItems() const noexcept {
+            return m_items;
+        }
+        [[nodiscard]] std::vector<std::shared_ptr<Item>>& getItems() noexcept {
+            return m_items;
+        }
     private:
         std::vector<std::shared_ptr<Item>> m_items;
     };

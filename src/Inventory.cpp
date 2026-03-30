@@ -12,7 +12,7 @@ namespace inventory {
 
         for (const auto& existing : m_items) {
 
-            if (existing->getItemId() == item->getItemId());
+            if (existing->getItemId() == item->getItemId())
                 throw DuplicateItemException(item->getItemId());
         }
         m_items.push_back(std::move(item));

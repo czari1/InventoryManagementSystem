@@ -12,8 +12,8 @@ namespace inventory {
     filterItems(const Inventory& inv, Predicate pred) {
         std::vector<std::shared_ptr<Item>> result;
         std::copy_if(
-            inventory.getItems().cbegin(),
-            inventory.getItems().cend(),
+            inv.getItems().cbegin(),
+            inv.getItems().cend(),
             std::back_inserter(result),
             pred
         );
