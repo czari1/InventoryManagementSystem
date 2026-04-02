@@ -10,7 +10,7 @@ namespace inventory {
         , m_warrantyMonths(warrantyMonths)
         {
             if (warrantyMonths < 0)
-                throw InvalidValueException("Warranty months cannot be nagative.");
+                throw InvalidValueException("Warranty months cannot be negative.");
         }
 
         void Electronics::display() const {
@@ -34,7 +34,7 @@ namespace inventory {
         void Electronics::setWarrantyMonths(int months) {
             
             if (months < 0) {
-                throw InvalidValueException("Warranty months cannot be nageative");
+                throw InvalidValueException("Warranty months cannot be negative");
             }
             m_warrantyMonths = months;
             
