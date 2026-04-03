@@ -17,12 +17,11 @@ static inventory::Inventory buildDemoInventory() {
 }
 
 int main() {
-
     std::cout << "Demo\n";
 
     inventory::Inventory demo = buildDemoInventory();
 
-    std::cout << "Inevntory\n";
+    std::cout << "Inventory\n";
     demo.displayInventory();
 
     inventory::Inventory movedInv = std::move(demo);
@@ -33,22 +32,21 @@ int main() {
     std::cout << "\nmovedInv holds all items\n";
     movedInv.displayInventory();
 
-    std::cout << "\nfilterItems — qty < 20\n";
+    std::cout << "\nfilterItems - qty < 20\n";
     const auto filtered = inventory::filterItems(movedInv,
         [](const auto& item) { return item->getQuantity() < 20; });
 
     for (const auto& item : filtered)
         item->display();
 
-    std::cout << "\nsortItems by price \n";
+    std::cout << "\nsortItems by price\n";
     inventory::sortItems(movedInv,
         [](const auto& item) { return item->getPrice(); });
     movedInv.displayInventory();
 
     std::cout << "\nStarting CLI menu\n\n";
 
-    inventory::Inventory appInventory;
-    inventory::UI ui(appInventory);
+    inventory::UI ui(movedInv);
     ui.run();
 
     return 0;
