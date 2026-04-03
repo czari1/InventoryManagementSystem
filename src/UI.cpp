@@ -19,7 +19,7 @@ namespace inventory {
             if (!(std::cin >> choice)) {
                 std::cin.clear();
                 std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-                std::cout << "Invalid output. Please enter an int.\n";
+                std::cout << "Invalid input. Please enter an int.\n";
                 continue;
             }
             
@@ -37,7 +37,7 @@ namespace inventory {
                     case 8:  handleFindMostExpensive(); break;
                     case 9:  handleFilterByQuantity(); break;
                     case 10: handleSortByPrice(); break;
-                    case 11: std::cout << "Goodbye \n"; break;
+                    case 11: std::cout << "Goodbye\n"; break;
                     default: std::cout << "Invalid option. Please choose number from 1 to 11. \n";
                 }
             } catch (const InventoryException& e) {
