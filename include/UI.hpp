@@ -12,6 +12,9 @@ namespace inventory {
     
     private:
         Inventory& m_inventory;
+        std::string m_dataDir;
+
+        [[nodiscard]] std::string resolvePath(const std::string& filename) const;
 
         void printMenu();
 

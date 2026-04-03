@@ -5,10 +5,21 @@
 #include <iostream>
 #include <limits>
 #include <algorithm>
+#include <filesystem>
 
 namespace inventory {
 
-    UI::UI(Inventory& inventory) : m_inventory(inventory) {}
+    UI::UI(Inventory& inventory) 
+    : m_inventory(inventory)
+    , m_dataDir(PROJECT_DATA_DIR)
+    {}
+
+    std::string UI::resolvePath(const std::string& filename) const {
+
+        if (std::filesystem::path(filename).is_absolute())
+            return filename;
+        return m_dataDir + "/" + filename;
+    }
 
     void UI::run() {
         int choice = 0;
@@ -149,7 +160,8 @@ namespace inventory {
         std::cout << "Filename: ";
         std::getline(std::cin, filename);
 
-        m_inventory.readFromFile(filename);
+        const std::string path = resolvePath(filename);
+        m_inventory.readFromFile(path);
         std::cout << "Inventory loaded from file.\n";
     }
 
@@ -159,7 +171,8 @@ namespace inventory {
         std::cout << "Filename: ";
         std::getline(std::cin, filename);
 
-        m_inventory.writeToFile(filename);
+        const std::string path = resolvePath(filename);
+        m_inventory.writeToFile(path);
         std::cout << "Inventory saved to file.\n";
     }
 
