@@ -22,7 +22,7 @@ namespace inventory {
 
         [[nodiscard]] virtual std::string category() const = 0;
 
-        [[nodiscard]] virtual std::optional<std::string> findAttribute(const std::string& key) const;
+        [[nodiscard]] virtual std::optional<std::string> findAttribute(const std::string& key) const noexcept;
 
         [[nodiscard]] const std::string& getItemId() const noexcept { return m_itemId; }
         [[nodiscard]] const std::string& getName() const noexcept { return m_name; }

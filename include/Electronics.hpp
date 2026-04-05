@@ -12,7 +12,7 @@ namespace inventory {
         [[nodiscard]] std::string category() const override;
 
         [[nodiscard]] std::optional<std::string>
-        findAttribute(const std::string& key) const override;
+        findAttribute(const std::string& key) const noexcept override ;
 
         [[nodiscard]] int getWarrantyMonths() const noexcept { return m_warrantyMonths; }
         

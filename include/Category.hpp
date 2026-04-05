@@ -22,6 +22,7 @@ namespace inventory {
         switch (category) {
             case Category::Electronics: return "Electronics";
             case Category::Grocery: return "Grocery";
+            default: return "Unknown";
         
         }
     }

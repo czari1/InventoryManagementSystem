@@ -34,7 +34,7 @@ namespace inventory {
         m_price = price;
     }
 
-    std::optional<std::string> Item::findAttribute(const std::string& /* key */) const {
+    std::optional<std::string> Item::findAttribute(const std::string& /* key */) const noexcept {
         return std::nullopt;
     }
 
